@@ -1,9 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { CallbackFunction, VercelRequest, VercelResponse } from '@vercel/node';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-let cachedServer: CallbackFunction;
+let cachedServer: Function;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,13 +18,16 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
 
-  await app.init(); // N'appelez pas `listen`, car Vercel gère les requêtes directement
+  await app.init(); // Ne pas appeler `listen()`, Vercel gère la fonction serverless
+
+  // Retourne l'instance du serveur une fois initialisé
   return app.getHttpAdapter().getInstance();
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+// Fonction handler pour Vercel
+export default async function handler(req, res) {
   if (!cachedServer) {
-    cachedServer = await bootstrap();
+    cachedServer = await bootstrap(); // Initialiser le serveur uniquement une fois
   }
-  cachedServer(req, res);
+  cachedServer(req, res); // Gérer la requête avec l'instance du serveur
 }
