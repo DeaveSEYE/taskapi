@@ -5,7 +5,7 @@
     "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./.db/data.sqlite3"
+    "storage": ":memory"    
   },
   "test": {
     "username": "root",
@@ -13,7 +13,7 @@
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./database_test.sqlite"
+    "storage": ":memory"  
   },
   "production": {
     "username": "root",
@@ -21,6 +21,6 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./database_production.sqlite"
+    "storage": ":memory"  
   }
 }
