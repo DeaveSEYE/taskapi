@@ -12,7 +12,7 @@ async function bootstrap() {
     .setTitle('Your API Title')
     .setDescription('Your API description')
     .setVersion('1.0')
-    .addServer('/')
+    .addServer('https://taskapi-blue.vercel.app/api-docs')
     .addTag('Your API Tag')
     .build();
   const document = SwaggerModule.createDocument(app, options);
