@@ -1,0 +1,15 @@
+modification apporter dans les fichiers
+
+
+fichier dist/task/entities/Task.entity.d.ts 
+fichier dist/task/dto/create.task.dto 
+fichier dist/task/dto/update.task.dto 
+fichier dist/task/entities/Taskentitiy.ts
+
+
+
+
+
+run la magration si champ nom detecter 
+npx sequelize-cli db:migrate:undo --name 20241126205306-categorie.js
+npx sequelize-cli db:migrate
