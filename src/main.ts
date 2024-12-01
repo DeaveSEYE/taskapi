@@ -11,8 +11,8 @@ async function bootstrap() {
     .setVersion('1.0')
     .addServer('http://localhost:3000/', 'Local environment')
    // .addServer('https://taskapi-yz3z.onrender.com/', 'Local environment')
-    .addServer('https://taskapi-yz3z.onrender.com/', 'Staging')
-    .addServer('https://taskapi-yz3z.onrender.com/', 'Production')
+    .addServer('http://localhost:3000/', 'Staging')
+    .addServer('http://localhost:3000/', 'Production')
     .addTag('Your API Tag')
     .build();
   const document = SwaggerModule.createDocument(app, options);

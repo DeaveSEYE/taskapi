@@ -1,7 +1,9 @@
 const axios = require('axios');
 
 // URL de l'API et point de terminaison
-const API_URL = 'https://taskapi-yz3z.onrender.com/';
+//const API_URL = 'https://taskapi-yz3z.onrender.com/';
+const API_URL = 'http://localhost:3000/';
+
 
 // Exemple de données à envoyer
 const dataTasks = [
